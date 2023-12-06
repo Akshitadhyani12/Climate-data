@@ -1,3 +1,5 @@
+#importing importing libraries 
+
 import netCDF4 as nc
 import xarray as xr
 import pandas as pd
@@ -9,7 +11,9 @@ da=ds['RAINFALL']
 da
 ds = xr.open_dataset(f1)
 
-variable_without_time = ds['RAINFALL'].isel(time=0) 
+variable_without_time = ds['RAINFALL'].isel(time=0)
+
+#viewing the data 
 variable_without_time
 
 #merging 2020-2022 with time
@@ -25,7 +29,7 @@ datasets = [xr.open_dataset(file_path) for file_path in file_paths]
 merged_dataset = xr.merge(datasets)
 merged_dataset.to_netcdf('merged_file_without_common_dimension.nc')
 
-
+#file locations 
 file_paths = [
     'C:/Users/hp/Desktop/netcdf rainfall/merged_file_without_common_dimension.nc',
     'C:/Users/hp/Desktop/netcdf rainfall/RF_1901_2019-001.nc'
